@@ -1,26 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import './CSS/App.css';
+
+import Home       from './Pages/Home.js'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <Router>
+      <div>
+
+        <header>
+          <div className="Container">
+
+              <div id="Branding">
+                <h1> Derby Serenaders </h1>
+              </div>
+
+              <nav id="Nav">
+                <ul>
+                  <li>      <Link to="/">                  Home         </Link>       </li>
+                  <li>      <Link to="/ContactUs">         Contact Us   </Link>       </li>
+                </ul>
+              </nav>
+
+          </div>
         </header>
+
+        <div>
+          <Route exact path="/"         component={Home} />
+          <Route path="/ContactUs"      component={Home} />
+        </div>
+
+        <footer>
+          <p>
+            &copy; 2018 The Derby Serenaders - Website design by Aaron Beers
+          </p>
+        </footer>
+
       </div>
+      </Router>
     );
   }
 }
